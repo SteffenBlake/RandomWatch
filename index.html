@@ -14,7 +14,7 @@
 <body>
     <header>
         <!-- Header Text -->
-        <div class="text-center d-inline-block w-100">
+        <div class="text-center">
             <img src="content/assets/icon.png" width="50" height="50" class="align-top" alt="BunnyFace">
             <h1 class="d-inline-block">RandomWatch - Random Overwatch Hero Selector</h1>
         </div>
@@ -22,12 +22,12 @@
     </header>
     
     <main role="main">
-    <!-- WELCOME SCREEN -->
-        <div class="card text-center">
-            <div class="card-body mx-5">
-                <h1 id="hero-header">TEST</h1>
-                <button id="roll-btn" type="button" class="btn btn-primary"><h1>Roll!</h1></button>
-            </div>
+        <div class="text-center" style="height:100%">
+            <img id="hero-img" src="" alt="PORTRAIT">
+            <h1 id="hero-header">TEST</h1>
+            <button id="roll-btn" type="button" class="btn btn-primary">
+                <h1>Roll!</h1>
+            </button>
         </div>
     </main>
 
@@ -49,7 +49,7 @@
         'Baptiste',
         'Bastion',
         'Brigitte',
-        'D.Va',
+        'D Va',
         'Doomfist',
         'Genji',
         'Hanzo',
@@ -64,8 +64,7 @@
         'Reaper',
         'Reinhardt',
         'Roadhog',
-        'Sigma',
-        'Soldier: 76',
+        'Soldier 76',
         'Sombra',
         'Symmetra',
         'Torbjörn',
@@ -94,28 +93,57 @@
         rollHero();
     }
 
-    function rollHero(e) {
+    function rollHero() {
         var max = heroes.length;
         var selection = Math.floor(Math.random() * max);
         var hero = heroes[selection];
 
+        var heroSrc = "content/assets/portraits/" + hero + ".png";
+
         $("#hero-header").text(hero);
+        $("#hero-img").attr("src", heroSrc)
     }
 
 </script>
 
 <style>
 
-html, body, div {
-    height: 100%;
+html {
+    height: 100vh;
 }
 
-header, footer {
+body {
+    height:100%;
+}
+
+div {
+    max-height: 100%;
+}
+
+header {
     height: 20%;
 }
 
 main {
+    height: 70%;
+}
+
+footer {
+    height: 10%;
+}
+
+#hero-img{
+    max-height:310px;
     height: 60%;
+    width: auto;
+}
+
+#hero-header {
+    height: 20%;
+}
+
+#roll-btn{
+    height: 20%;
 }
 
 </style>
