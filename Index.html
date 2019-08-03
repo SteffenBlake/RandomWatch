@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RandomWatch - Random Overwatch Hero Selector</title>
+    <link rel="icon" href="content/assets/icon.png" type="image/png" sizes="16x16">
+
+    <!-- Style Registrations -->
+    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="content/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="content/site.css">
+</head>
+
+<body>
+    <header>
+        <!-- Header Text -->
+        <div class="text-center d-inline-block w-100">
+            <img src="content/assets/icon.png" width="50" height="50" class="align-top" alt="BunnyFace">
+            <h1 class="d-inline-block">RandomWatch - Random Overwatch Hero Selector</h1>
+        </div>
+        <div class="text-muted text-center">Created by Steffen Blake</div>
+    </header>
+    
+    <main role="main">
+    <!-- WELCOME SCREEN -->
+        <div class="card text-center">
+            <div class="card-body mx-5">
+                <h1 id="hero-header">TEST</h1>
+                <button id="roll-btn" type="button" class="btn btn-primary"><h1>Roll!</h1></button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-muted">
+        © Steffen Blake 2019
+    </footer>
+
+</body>
+
+
+<!-- Script Registrations -->
+<script type="text/javascript" src="Scripts/jquery.min.js"></script>
+<script type="text/javascript" src="Scripts/bootstrap.bundle.min.js"></script>
+
+<script>
+    var heroes = [
+        'Ana',
+        'Ashe',
+        'Baptiste',
+        'Bastion',
+        'Brigitte',
+        'D.Va',
+        'Doomfist',
+        'Genji',
+        'Hanzo',
+        'Junkrat',
+        'Lúcio',
+        'McCree',
+        'Mei',
+        'Mercy',
+        'Moira',
+        'Orisa',
+        'Pharah',
+        'Reaper',
+        'Reinhardt',
+        'Roadhog',
+        'Sigma',
+        'Soldier: 76',
+        'Sombra',
+        'Symmetra',
+        'Torbjörn',
+        'Tracer',
+        'Widowmaker',
+        'Winston',
+        'Wrecking Ball',
+        'Zarya',
+        'Zenyatta'
+    ];
+
+    var min = 0;
+    var max = heroes.length;
+
+    $(window).on('load', onLoad);
+
+    // Init
+    function onLoad() {
+        // Enable popovers
+        $('[data-toggle="popover"]').popover();
+
+
+        // Event Registration
+        $('#roll-btn').on("click", rollHero);
+
+        rollHero();
+    }
+
+    function rollHero(e) {
+        var max = heroes.length;
+        var selection = Math.floor(Math.random() * max);
+        var hero = heroes[selection];
+
+        $("#hero-header").text(hero);
+    }
+
+</script>
+
+<style>
+
+html, body, div {
+    height: 100%;
+}
+
+header, footer {
+    height: 20%;
+}
+
+main {
+    height: 60%;
+}
+
+</style>
+
+</html>
